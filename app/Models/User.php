@@ -18,6 +18,7 @@ class User extends Authenticatable
         'password',
         'rolla_username',
         'happy_place',
+        'country',
         'hear_rolla',
         'photo',
         'bio',
