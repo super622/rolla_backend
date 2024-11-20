@@ -16,10 +16,12 @@ class User extends Authenticatable
         'last_name',
         'email',
         'password',
-        'user_name',
-        'country',
-        'heard',
+        'rolla_username',
+        'happy_place',
+        'hear_rolla',
         'photo',
-        'bio'
+        'bio',
+        'state_staus',
+        'following_user_id'
     ];
 }

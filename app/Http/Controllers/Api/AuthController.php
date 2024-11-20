@@ -34,9 +34,9 @@ class AuthController extends Controller
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
             'email' => 'required|string|max:255|unique:users,email',
-            'country' => 'required|string|max:255',
+            'happy_place' => 'required|string|max:255',
             'password' => 'required|string|min:6',
-            'username' => 'required|string|max:255',
+            'rolla_username' => 'required|string|max:255',
         ]);
 
         if ($validator->fails()) {
@@ -49,9 +49,9 @@ class AuthController extends Controller
                 'last_name' => $request->last_name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
-                'country' => $request->country,
-                'user_name' => $request->username,
-                'heard' => $request->heard ?? 0,
+                'happy_place' => $request->happy_place,
+                'rolla_username' => $request->rolla_username,
+                'hear_rolla' => $request->hear_rolla ?? 0,
             ]);
 
             $user->save();

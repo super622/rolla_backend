@@ -16,12 +16,14 @@ return new class extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email');
-            $table->string('country')->nullable();
-            $table->string('user_name')->nullable();
             $table->string('password');
-            $table->integer('heard')->nullable();
+            $table->string('happy_place')->nullable();
+            $table->string('rolla_username')->nullable();
+            $table->integer('hear_rolla')->nullable();
             $table->string('photo')->nullable();
             $table->string('bio')->nullable();
+            $table->integer('state_staus')->default(0);
+            $table->string('following_user_id')->default('');
             $table->timestamps();
         });
     }
