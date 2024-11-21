@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('happy_place')->nullable();
             $table->string('country')->nullable();
             $table->string('rolla_username')->nullable();
-            $table->integer('hear_rolla')->nullable();
+            $table->string('hear_rolla')->nullable();
             $table->string('photo')->nullable();
             $table->string('bio')->nullable();
             $table->integer('state_staus')->default(0);
