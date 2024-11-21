@@ -121,4 +121,9 @@ class AuthController extends Controller
             return response()->json(['message' => 'An error occurred during login'], 500);
         }
     }
+
+    public function logout(Request $request)
+    {
+        
+    }
 }
