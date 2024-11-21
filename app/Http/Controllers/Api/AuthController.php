@@ -90,7 +90,7 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'email' => 'required|string|max:255',
+            'identifier' => 'required|string|max:255', // Identifier can be email or username
             'password' => 'required|string|max:255',
         ]);
 
@@ -99,7 +99,9 @@ class AuthController extends Controller
         }
 
         try {
-            $user = User::where('email', $request->email)->first();
+            $user = User::where('email', $request->identifier)
+                            ->orWhere('rolla_username', $request->identifier)
+                            ->first();
 
             if ($user) {
                 if (!Hash::check($request->password, $user->password)) {
@@ -113,10 +115,10 @@ class AuthController extends Controller
                     ], 200);
                 }
             } else {
-                return response()->json(['message' => 'Not exist'], 401);
+                return response()->json(['message' => 'User does not exist'], 401);
             }
-        } catch (ModelNotFoundException $e) {
-            return response()->json(['message' => 'Invalid credentials'], 401);
+        } catch (Exception $e) {
+            return response()->json(['message' => 'An error occurred during login'], 500);
         }
     }
 }
