@@ -36,7 +36,7 @@ class AuthController extends Controller
             'email' => 'required|string|max:255|unique:users,email',
             'country' => 'required|string|max:255',
             'password' => 'required|string|min:6',
-            'rolla_username' => 'required|string|max:255',
+            'rolla_username' => 'required|string|max:255|unique:users,rolla_username',
         ]);
 
         if ($validator->fails()) {
